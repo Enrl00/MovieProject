@@ -5,6 +5,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { MovieProvider } from "./components/movieInfo";
+import { SeatProvider } from "./components/seatContext";
+import { UserProvider } from "./components/userContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
@@ -12,9 +14,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <MovieProvider>
+    <UserProvider>
+    <SeatProvider>
     <BrowserRouter>
       <App />
     </BrowserRouter>
+    </SeatProvider>
+    </UserProvider>
     </MovieProvider>
   </React.StrictMode>
 );

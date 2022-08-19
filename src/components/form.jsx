@@ -1,24 +1,28 @@
-import React,{ useState}from "react"; 
-// import { Link } from "react-router-dom";
+import { useUserContext } from "./userContext";
+import { Link } from "react-router-dom";
 const Form = () => {
-    const [userInfo,setState] =useState({})
+    const {userInfo, setUserInfo} =useUserContext();
     const Save = () => {
+        document.getElementById('userForm').reset()
         console.log(userInfo);
-        setState({})
     }
 
     const handleChange = (event) => {
-        setState({...userInfo, [event.target.id]: event.target.value});
+        setUserInfo({...userInfo, [event.target.id]: event.target.value});
     }
 
-
     return(
-        <div style={{display:'flex', flexDirection:'column', width:'30vw'}}>
+        <div >
+            <form id="userForm" style={{display:'flex', flexDirection:'column', width:'30vw'}}>
             <input type="text" id={"name"} placeholder="name" onChange={handleChange}></input>
             <input type="email" id={"email"} placeholder="email" onChange={handleChange}></input>
-            <input type="number" id={"phone"} placeholder="phone number" onChange={handleChange}></input>
-            
-            <button onClick={() => Save()}></button>
+            <input  id={"phone"} placeholder="phone number" onChange={handleChange}></input>
+            <label>Adults' Ticket</label>
+            <input id={"adultTicket"} type="number" min="1" max="10" onChange={handleChange} />
+            <label>Kids' Ticket</label>
+            <input id={"kidsTicket"} type="number" min="1" max="10" onChange={handleChange} />
+            </form>
+           <Link to="/seat"> <button onClick={() => Save()}>Next</button></Link>
         </div>
     )
 }

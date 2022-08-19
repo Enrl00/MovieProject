@@ -1,6 +1,6 @@
 const Title = ({data}) => {
     return(
-        <h2>{data}</h2>
+        <h1 style={{width:'20vw'}}>{data}</h1>
     )
 }
 export default Title;
