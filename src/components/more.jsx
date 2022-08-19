@@ -1,17 +1,18 @@
-import { useMovieContext } from "./movieInfo";
+import { useMovieContext } from "../provider/MovieInfo";
 import { useState } from "react";
 import {Link } from "react-router-dom";
 import Picture from "./picture";
 import Form from './form'
+import '../styles/more.css'
 const More = () => {
 const {chosen} = useMovieContext();
 const [click, setClickState] = useState(false)
 if(click === false){
     return(
-        <div>
+        <div className="bigContentContainer">
          <Picture data={chosen.url}/>
          
-         <div>
+         <div className="detailedTextContainer">
                      <h1>{chosen.name}</h1>
                      <h2>On screeen</h2>
                      <p>{chosen.releaseDate}</p>
@@ -27,7 +28,7 @@ if(click === false){
      )
 }else{
     return(
-        <div>
+        <div className="bigContentContainer">
             <Picture data={chosen.url}/>
             <Form/>
         </div>

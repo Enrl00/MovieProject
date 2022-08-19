@@ -1,7 +1,8 @@
-import { useMovieContext } from "./movieInfo"
+import { useMovieContext } from "../provider/MovieInfo"
 import Picture from './picture'
 import Title from './title'
 import {Link } from "react-router-dom";
+import '../styles/movies.css'
 const Movies = () => {
     const { movieInfo,setChosen} = useMovieContext()
     return (
@@ -11,8 +12,10 @@ const Movies = () => {
                     <div>
                         <Picture data={el.url} />
                         <Title data={el.name} />
-                        <span style={{marginRight:'1vw'}}>{el.releaseDate}</span>
-                        <span>{el.duration}</span>
+                        <div>
+                            <span style={{marginRight:'1vw'}}>{el.releaseDate}</span>
+                            <span>{el.duration}</span>
+                        </div>
                     </div>
                     <div className="textContainer">
                         <nav>

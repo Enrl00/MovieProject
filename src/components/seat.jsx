@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useSeatContext } from "./seatContext";
-import {useUserContext} from "./userContext"
+import { useSeatContext } from "../provider/SeatContext";
+// import {useUserContext} from "../provider/UserContext"
 const Seat = () => {
     const {seatInfo, setSeatInfo} = useSeatContext();
-    const {userInfo} = useUserContext();
+    // const {userInfo} = useUserContext();
     const [chosen, setChosen] = useState([]);
     console.log(seatInfo);
     return(

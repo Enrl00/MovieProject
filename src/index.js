@@ -4,9 +4,9 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { MovieProvider } from "./components/movieInfo";
-import { SeatProvider } from "./components/seatContext";
-import { UserProvider } from "./components/userContext";
+import { MovieProvider } from "./provider/MovieInfo";
+import { SeatProvider } from "./provider/SeatContext";
+import { UserProvider } from "./provider/UserContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
