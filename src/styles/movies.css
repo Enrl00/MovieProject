@@ -17,10 +17,6 @@
     font-size: 0.5vw;
     color: rgb(255, 255, 255);
   }
-  h1{
-    height: fit-content;
-    font-size: 2.5vw;
-  }
   .timeTable{
     width: 8vw;
     background-color: white;
@@ -28,7 +24,7 @@
     padding: 3px;
     display: flex;
     flex-direction: column;
-    height:40vw;
+    height:48vw;
     align-items: center;
   }
   button{

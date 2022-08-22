@@ -15,10 +15,14 @@ if(click === false){
          <div className="detailedTextContainer">
                      <h1>{chosen.name}</h1>
                      <h2>On screeen</h2>
-                     <p>{chosen.releaseDate}</p>
-                     <h2>{chosen.duration}</h2>
-                     <h2>About</h2>
+                     <div className="aboutText">
+                        <div className="aboutTitle">About</div>
+                        <div className="duration">
+                            <p>{chosen.releaseDate}</p>
+                            <p>{chosen.duration}</p>
+                        </div>
                      <p>{chosen.info}</p>
+                     </div>
                      <button onClick={()=> setClickState(true)}>Order</button>
                      <nav>
                          <Link to='/'>Back</Link>
