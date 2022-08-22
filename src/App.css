@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+button{
+  border-radius: 20px;
+  width: 7vw;
+  border: 1px solid #072B54;
+}
+label{
+  text-align: left;
+  margin-top: 2vh;
+}
