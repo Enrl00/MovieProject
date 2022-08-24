@@ -4,7 +4,6 @@ const Form = () => {
     const {userInfo, setUserInfo} =useUserContext();
     const Save = () => {
         document.getElementById('userForm').reset()
-        console.log(userInfo);
     }
 
     const handleChange = (event) => {
