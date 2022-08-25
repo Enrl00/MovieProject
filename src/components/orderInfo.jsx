@@ -9,7 +9,7 @@ const OrderInfo =  () => {
             userInfo
         });
     }
-    console.log(userInfo);
+    
     return(
         <div>
             <div>Name: {userInfo.name}</div>
