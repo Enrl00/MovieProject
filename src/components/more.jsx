@@ -6,7 +6,7 @@ import Form from './form'
 import '../styles/more.css'
 const More = () => {
 const {chosen} = useMovieContext();
-const [click, setClickState] = useState(false)
+const [click, setClickState] = useState(false);
 if(click === false){
     return(
         <div className="bigContentContainer">

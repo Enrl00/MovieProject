@@ -1,0 +1,22 @@
+.mainContainer{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.seat{
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8vh;
+}
+.seatInput{
+    width: 30px;
+    height: 30px;
+}
+.screen{
+    width: 45%;
+    border-top: 1.5vh solid black;
+    border-radius: 50%;
+}
