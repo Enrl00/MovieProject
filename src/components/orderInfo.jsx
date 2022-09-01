@@ -10,18 +10,20 @@ const OrderInfo =  () => {
     const {userInfo} = useUserContext();
     const {chosen} = useMovieContext();
     const {seatInfo,seatMovie} =useSeatContext();
+    const docId = seatMovie.movieTitle + seatMovie.ticketHour;
     const fireBase = async () => {
         const docRef = await addDoc(collection(firestore, "order"), {
             userInfo
         });
         try{
-            setDoc(doc(firestore, "seat",seatMovie.movieTitle),{ seatInfo })
+            await setDoc(doc(firestore, "seat",docId),{ seatInfo })
         }catch(error){
             console.log(error);
         }
+        console.log(docRef);
         alert('thank you! your order has been registered')
     }
-    console.log(seatInfo);
+    console.log(seatMovie.movieTitle);
     return(
         <div className="order">
             <Picture data={chosen.url}/>

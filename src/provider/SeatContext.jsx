@@ -4,7 +4,7 @@ const SeatContext = createContext();
 
 export const SeatProvider =(props) => {
     const {children}=props;
-    const [seatInfo, setSeatInfo]=useState( new Array(100).fill(false));
+    // const [seatInfo, setSeatInfo]=useState( new Array(100).fill(false));
     const [seatMovie, setSeatMovie] = useState('')
     return(
         <SeatContext.Provider value={{seatInfo, setSeatInfo, seatMovie, setSeatMovie}} >

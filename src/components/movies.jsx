@@ -5,18 +5,10 @@ import {Link } from "react-router-dom";
 import '../styles/movies.css'
 import { useUserContext } from "../provider/UserContext";
 import {useSeatContext} from "../provider/SeatContext";
-import { firestore } from "../firebase";
-import{addDoc,collection} from "@firebase/firestore"
-import { useEffect } from "react";
 const Movies = () => {
     const { movieInfo,setChosen} = useMovieContext();
     const { userInfo,setUserInfo} = useUserContext();
-    const {seatMovie, setSeatMovie,seatInfo} = useSeatContext();
-    useEffect(async() =>{
-        movieInfo.map(el => {
-            
-        })
-    },[movieInfo])
+    const {seatMovie, setSeatMovie} = useSeatContext();
     const OnClickFunction = (el, time) => {
         setChosen(el);
         setUserInfo({...userInfo, ticketHour: time, movieTitle: el.name})
