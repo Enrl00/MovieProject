@@ -15,11 +15,9 @@ root.render(
   <React.StrictMode>
     <MovieProvider>
     <UserProvider>
-    <SeatProvider>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-    </SeatProvider>
     </UserProvider>
     </MovieProvider>
   </React.StrictMode>

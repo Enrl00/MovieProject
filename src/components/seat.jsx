@@ -1,12 +1,16 @@
 import { useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { firestore } from "../firebase";
 import { Link } from "react-router-dom";
-import { useSeatContext } from "../provider/SeatContext";
 import {useUserContext} from "../provider/UserContext"
 import '../styles/seat.css'
 const Seat = () => {
-    const {seatInfo, setSeatInfo} = useSeatContext();
+
+    const docRef = doc(firestore, "seat", seatMovie);
+    const docSnap = await getDoc(docRef);
     const {userInfo,setUserInfo} = useUserContext();
     const [chosen, setChosen] = useState([]);
+    const [seatInfo,setSeatInfo] = useState(docSnap.data())
     const handleOnChange = (index) => {
         setSeatInfo(seatInfo.map((el,ind)=> ind === index ? !el : el))
         setChosen([...chosen,index]); 
