@@ -1,35 +1,33 @@
 import { useEffect, useState } from "react";
-import { doc, getDoc,collection } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
 import { Link } from "react-router-dom";
 import {useUserContext} from "../provider/UserContext"
-import {useSeatContext} from "../provider/SeatContext"
 import '../styles/seat.css'
-const Seat = async () => {
-    // const {seatMovie} = useSeatContext()
+import { useSeatContext } from "../provider/SeatContext";
+const Seat = () => {
     const {userInfo,setUserInfo} = useUserContext();
+    const {seatMovie,seatInfo,setSeatInfo} = useSeatContext();
     const [chosen, setChosen] = useState([]);
-    const [seatInfo,setSeatInfo] = useState([])
     const handleOnChange = (index) => {
         setSeatInfo(seatInfo.map((el,ind)=> ind === index ? !el : el))
         setChosen([...chosen,index]); 
     }
-    const clickHandle = async() => {
+    const clickHandle = () => {
         setUserInfo({...userInfo, seat: chosen})
-
     }
-    // useEffect(() => {
-    //     const fetch = async() => {
-    //         try{
-    //             const docRef = collection(firestore, "seat");
-    //             const docSnap = await getDoc(docRef);
-    //             console.log(docSnap.data());
-    //         } catch(err){
-    //             console.log(err);
-    //         }
-    //     }
-    //     fetch();
-    // }, [])
+    useEffect(() => {
+        const fetch = async() => {
+            try{
+                const docRef = doc(firestore, "seat", seatMovie.movieTitle+seatMovie.ticketHour);
+                const docSnap = await getDoc(docRef);
+                setSeatInfo(docSnap.data().seatInfo)
+            } catch(err) {
+                console.log(err);
+            }
+        }
+        fetch();
+    }, []);
     console.log(seatInfo);
     return(
         <div className="mainContainer">

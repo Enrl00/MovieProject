@@ -13,15 +13,15 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <MovieProvider>
-    <SeatProvider>
     <UserProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+      <MovieProvider>
+        <SeatProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </SeatProvider>
+      </MovieProvider>
     </UserProvider>
-    </SeatProvider>
-    </MovieProvider>
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function
