@@ -5,6 +5,19 @@ import {Link } from "react-router-dom";
 import '../styles/movies.css'
 import { useUserContext } from "../provider/UserContext";
 import {useSeatContext} from "../provider/SeatContext";
+import {Button} from "@mui/material"
+const styles = {
+    button:{
+        color:'#072B54',
+        backgroundColor:'white',
+        marginTop:'2vh',
+        '&:hover':{
+            backgroundColor:'#072B54',
+            color:'white'
+        }
+    }
+}
+
 const Movies = () => {
     const { movieInfo,setChosen} = useMovieContext();
     const { userInfo,setUserInfo} = useUserContext();
@@ -30,9 +43,24 @@ const Movies = () => {
                     <div className="textContainer">
                         <nav>
                             <div className="timeTable">
-                                <button><Link onClick={() => OnClickFunction(el,"11:10")} to='/more'>11:10</Link></button>
-                                <button><Link onClick={() => OnClickFunction(el,"14:40")} to='/more'>14:40</Link></button>
-                                <button><Link onClick={() => OnClickFunction(el,"15:00")} to='/more'>15:00</Link></button>
+                                <Link style={{textDecoration:'none'}} onClick={() => OnClickFunction(el,"11:10")} to='/more'>
+                                    <Button 
+                                    variant="outlined"
+                                    sx={styles.button}
+                                    >11:10</Button>
+                                </Link>
+                                <Link style={{textDecoration:'none'}} onClick={() => OnClickFunction(el,"14:40")} to='/more'>
+                                    <Button 
+                                    variant="outlined"
+                                    sx={styles.button}
+                                    >14:40</Button>
+                                </Link>
+                                <Link style={{textDecoration:'none'}} onClick={() => OnClickFunction(el,"15:00")} to='/more'>
+                                    <Button
+                                     variant="outlined"
+                                     sx={styles.button}
+                                     >15:00</Button>
+                                </Link>
                             </div>
                         </nav>
                         

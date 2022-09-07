@@ -1,9 +1,21 @@
 import { useMovieContext } from "../provider/MovieInfo";
 import { useState } from "react";
 import {Link } from "react-router-dom";
+import {Button} from "@mui/material";
+import { ButtonGroup } from "@mui/material";
 import Picture from "./picture";
 import Form from './form'
 import '../styles/more.css'
+const styles = {
+    button:{
+        color:'#072B54',
+        backgroundColor:'white',
+        marginRight:'0.5vw',
+        '&:hover':{
+            backgroundColor:'#072B54',
+            color:'white'
+        }
+    }}
 const More = () => {
 const {chosen} = useMovieContext();
 const [click, setClickState] = useState(false);
@@ -23,10 +35,18 @@ if(click === false){
                         </div>
                      <p>{chosen.info}</p>
                      </div>
-                     <button onClick={()=> setClickState(true)}>Order</button>
-                     <nav>
-                         <Link to='/'>Back</Link>
-                     </nav>
+                     <ButtonGroup>
+                        <Button 
+                           sx={styles.button}
+                           onClick={()=> setClickState(true)}>Order</Button>
+                        <nav>
+                            <Link style={{textDecoration:'none'}} to='/'>
+                               <Button sx={styles.button}>
+                                Back
+                               </Button>
+                            </Link>
+                        </nav>
+                     </ButtonGroup>
                  </div> 
         </div> 
      )
