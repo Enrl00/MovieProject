@@ -1,5 +1,16 @@
 import { useUserContext } from "../provider/UserContext";
 import { Link } from "react-router-dom";
+import {Button, Input} from "@mui/material"
+const styles = {
+    button:{
+        color:'#072B54',
+        backgroundColor:'white',
+        marginTop:'2vh',
+        '&:hover':{
+            backgroundColor:'#072B54',
+            color:'white'
+        }
+    }}
 const Form = () => {
     const {userInfo, setUserInfo} =useUserContext();
     const Save = () => {
@@ -14,17 +25,21 @@ const Form = () => {
         <div >
             <form id="userForm" style={{display:'flex', flexDirection:'column', width:'30vw'}}>
                 <label>Name</label>
-                <input type="text" id={"name"} placeholder="name" onChange={handleChange}></input>
+                <Input type="text" id={"name"} placeholder="name" onChange={handleChange}></Input>
                 <label>Email</label>
-                <input type="email" id={"email"} placeholder="email" onChange={handleChange}></input>
+                <Input type="email" id={"email"} placeholder="email" onChange={handleChange}></Input>
                 <label>Phone Number</label>
-                <input  id={"phone"} placeholder="phone number" onChange={handleChange}></input>
+                <Input  id={"phone"} placeholder="phone number" onChange={handleChange}></Input>
                 <label>Adults' Ticket</label>
-                <input id={"adultTicket"} type="number" min="1" max="10" onChange={handleChange} />
+                <Input id={"adultTicket"} type="number" min="1" max="10" onChange={handleChange} />
                 <label>Kids' Ticket</label>
-                <input id={"kidsTicket"} type="number" min="1" max="10" onChange={handleChange} />
+                <Input id={"kidsTicket"} type="number" min="1" max="10" onChange={handleChange} />
             </form>
-           <Link to="/seat"> <button onClick={() => Save()}>Next</button></Link>
+           <Link style={{textDecoration:'none'}} to="/seat">
+             <Button
+                sx={styles.button} 
+                onClick={() => Save()}>Next</Button>
+           </Link>
         </div>
     )
 }
