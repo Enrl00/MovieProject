@@ -5,6 +5,7 @@ import {Link } from "react-router-dom";
 import '../styles/movies.css'
 import { useUserContext } from "../provider/UserContext";
 import {useSeatContext} from "../provider/SeatContext";
+import {styled} from "@mui/material/styles"
 import {Button} from "@mui/material"
 const styles = {
     button:{
@@ -31,7 +32,7 @@ const Movies = () => {
         movieInfo.map(el => {
 
             return (
-                <div style={{display:'flex', flexDirection:'row', border:'8px solid #072B54', marginRight:'20px'}}>
+                <div style={{display:'flex', flexDirection:'row', border:'10px solid', borderColor:'inherit', marginRight:'20px'}}>
                     <div>
                         <Picture data={el.url} />
                         <Title data={el.name} />
