@@ -7,15 +7,10 @@ import More from './components/more'
 import Seat from "./components/seat";
 import './firebase'
 import OrderInfo from "./components/orderInfo";
-import {AppBar, Button} from "@mui/material"
 
 function App() {
   return (
     <div>
-      <AppBar>
-        <Button>Home</Button>
-        <Button>About</Button>
-      </AppBar>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />

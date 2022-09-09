@@ -7,21 +7,24 @@ import reportWebVitals from "./reportWebVitals";
 import { MovieProvider } from "./provider/MovieInfo";
 import { SeatProvider } from "./provider/SeatContext";
 import { UserProvider } from "./provider/UserContext";
+import { CustomTheme } from "./provider/ThemeProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
 );
 root.render(
   <React.StrictMode>
-    <UserProvider>
-      <MovieProvider>
-        <SeatProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </SeatProvider>
-      </MovieProvider>
-    </UserProvider>
+    <CustomTheme>
+      <UserProvider>
+        <MovieProvider>
+          <SeatProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </SeatProvider>
+        </MovieProvider>
+      </UserProvider>
+    </CustomTheme>
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function
